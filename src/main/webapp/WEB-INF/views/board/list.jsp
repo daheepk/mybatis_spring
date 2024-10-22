@@ -10,6 +10,15 @@
 <body>
     <div class="container">
         <h2>게시글 목록</h2>
+        <c:if test="${empty loginMember}">
+            <a href="/loginform">로그인</a>
+            <a href="/registform">회원가입</a>
+        </c:if>
+        <c:if test="${not empty loginMember}">
+            ${loginMember}님 반갑습니다.
+            <a href="/logout">로그아웃</a>
+        </c:if>
+
         <hr>
         <table class="table text-center">
             <tr>

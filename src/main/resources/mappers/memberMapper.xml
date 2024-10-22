@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.mvc.model.dao.MemberDao">
+
+<!--    멤버 한 명 가져오기-->
+    <select id="selectMember" resultType="Member">
+        SELECT * FROM member
+        WHERE id = #{id}
+    </select>
+
+    <select id="isMember" resultType="Member">
+        SELECT * FROM member
+        WHERE id = #{id} AND pw = #{pw}
+    </select>
+
+<!--    멤버 등록하기-->
+    <select id="insertMember" resultType="Member">
+        INSERT INTO member (id, pw, name)
+        VALUES (#{id}, #{pw}, #{name});
+    </select>
+</mapper>

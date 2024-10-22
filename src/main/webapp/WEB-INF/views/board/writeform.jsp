@@ -16,8 +16,8 @@
 				<input type="text" class="form-control" id="title" name="title">
 			</div>
 			<div class="mb-3">
-				<label for="writer" class="form-label">글쓰니</label>
-				<input type="text" class="form-control" id="writer" name="writer">
+<%--				<label for="writer" class="form-label">${loginMember}</label>--%>
+				<input type="hidden" class="form-control" id="writer" name="writer" value="${loginMember}">
 			</div>
 			<div class="mb-3">
 				<label for="content" class="form-label">글내용</label>
