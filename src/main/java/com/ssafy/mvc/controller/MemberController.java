@@ -23,12 +23,16 @@ public class MemberController {
         return "/member/loginform";
     }
     @PostMapping("/login")
-    public String login(@ModelAttribute Member member, HttpServletRequest request){
-        member = memberService.isMember(member.getId(), member.getPw());
-        if (member.getId() != null){
-            HttpSession session = request.getSession();
-            session.setAttribute("loginMember", member.getName());
-            return "redirect:list";
+    public String login(@ModelAttribute Member member, HttpServletRequest request) {
+        try {
+            member = memberService.isMember(member.getId(), member.getPw());
+            if (member.getId() != null) {
+                HttpSession session = request.getSession();
+                session.setAttribute("loginMember", member.getName());
+                return "redirect:list";
+            }
+        } catch (Exception e) {
+            System.out.println("해당하는 회원정보가 없습니다.");
         }
         return "redirect:loginform";
     }

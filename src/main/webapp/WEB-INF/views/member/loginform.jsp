@@ -7,6 +7,7 @@
 </head>
 <body>
     <h2>로그인페이지</h2>
+    ${errMsg}
     <form action="/login" method="POST">
         id<input type="text" name="id">
         pw<input type="password" name="pw">
